@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/Logo_WSCore_LowRes.png">
+    <script id="script_index" src="./js/lib/Crypto-js.js"></script>
+    <script id="script_index" src="./js/login.js"></script>
+    <link rel="stylesheet" href="./css/login.css">
+    <title>WSCore - Sistema de Controle Cadastral</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <center>
+                <img src="./images/Logo_WSCore_HiRes.png" width="auto" height="300px">
+            </center>
+            <form onsubmit="event.preventDefault(); Login()">
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário">
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha">
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

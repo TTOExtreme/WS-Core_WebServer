@@ -1,0 +1,33 @@
+:root {
+    /* Controle de cores dos fundos de tela */
+    --bg_primario: #e1e1e1;
+    --bg_secundario: #808080;
+    --bg_terciario: #464746;
+    --bg_quaternario: #777;
+    --bg_sombra: #88888880;
+    --texto_primario: #ccc;
+    --texto_secundario: #cdc;
+    --texto_terciario: #ddd;
+    --texto_quaternario: #888;
+    /* Controle de cores dos botoes de ação */
+    --botao_borda: #686a62;
+    --botao_bg_primario: #A8D900;
+    --botao_bg_hover: #8CBF00;
+    --botao_bg_click: #999;
+    --texto_botao: #ddd;
+    --texto_botao_hover: #888;
+    /* Controle de cores das abas*/
+    --aba_borda: #686a62;
+    --aba_borda_selecionada: #A8D900;
+    --aba_bg_primario: #464746;
+    --aba_bg_hover: #636363;
+    --aba_bg_click: #999;
+    --texto_aba: #ddd;
+    --texto_aba_hover: #ebebeb;
+    --navbar_top_shadow: #202020;
+    /* Controle de Telas Simples / Menus Simples */
+    --menu_simples_bg_primario: #333;
+    --menu_simples_bg_secundario: #4D4D4D;
+    --menu_simples_texto: var(--texto_primario);
+    --menu_simples_borda: #333;
+}

@@ -1,0 +1,84 @@
+/* Div principal da aba, caracterização de aba */
+.navbar_aba_div {
+    width: 150px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+    border: 2px solid var(--aba_borda);
+    border-radius: 15px 15px 0 0;
+    margin-top: 10px;
+    background-color: var(--aba_bg_primario);
+    color: var(--texto_aba);
+    transition: ease-in-out 0.2s margin;
+    cursor: pointer;
+}
+
+/* alinhamento das abas em relação a tabela de lista das mesmas */
+.ntt_navbar_top_abas td {
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+}
+
+/* quando mouse sobreposto realiza as mudanças caracterizando pré seleção */
+.navbar_aba_div:hover {
+    margin-top: 5px;
+    background-color: var(--aba_bg_hover);
+    color: var(--texto_aba_hover);
+}
+
+/* quando uma aba esta em modo selecionado/ativa */
+.navbar_aba_div_selecionada {
+    margin-top: 5px;
+    border: 2px solid var(--aba_borda_selecionada);
+}
+
+.navbar_aba_div_favoritada {
+    color: var(--aba_borda_selecionada);
+}
+
+/* bloco de itens de configuração */
+.ntt_navbar_top_config {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 45px;
+    padding-left: 15px;
+    vertical-align: middle;
+    color: var(--texto_primario);
+    background-color: var(--bg_terciario);
+    border-radius: 0 0 0 15px;
+    border: 2px solid var(--bg_sombra);
+    border-top: none;
+    border-right: none;
+}
+
+/* alinhamento das abas em relação a tabela de lista das mesmas do painel de configurções */
+.ntt_navbar_top_config td {
+    height: 100%;
+    padding-top: 5px;
+}
+
+/* alinhamento das abas em relação a tabela de lista das mesmas do painel de configurções */
+.ntt_navbar_top_config table {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+/* Contabilizadores dos itens da tabela Config */
+.navbar_top_config_counter {
+    font-size: 7pt;
+    color: red;
+    background-color: yellow;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    margin-top: -15px;
+    margin-left: 12px;
+    z-index: 10;
+    position: relative;
+}

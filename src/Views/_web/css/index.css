@@ -1,0 +1,51 @@
+body {
+    background-color: var(--bg_primario);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.ntt_navbar_top {
+    position: absolute;
+    width: 100vw;
+    height: 40px;
+    top: 0;
+    left: 0;
+    color: var(--texto_primario);
+    background-color: var(--bg_secundario);
+    overflow-y: hidden;
+    overflow-x: scroll;
+    box-shadow: 3px 3px 4px 1px var(--navbar_top_shadow);
+}
+
+.ntt_navbar_left {
+    position: absolute;
+    width: 40px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    color: var(--texto_primario);
+    background-color: var(--bg_terciario);
+}
+
+.ntt_navbar_bottom {
+    position: absolute;
+    width: 100vw;
+    height: 25px;
+    bottom: 0;
+    left: 0;
+    color: var(--texto_primario);
+    background-color: var(--bg_secundario);
+}
+
+/* Esconde o Scrollbar porem mantendo funcionalidade */
+.hidescrolbar {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.hidescrolbar::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}

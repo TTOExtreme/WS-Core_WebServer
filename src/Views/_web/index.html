@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Carrega estilos e imagens-->
+    <link rel="icon" type="image/x-icon" href="./images/Logo_WSCore_LowRes.png">
+    <link id="style_tema" rel="stylesheet" href="./css/tema_escuro.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/navbar_top.css">
+    <!--Carrega as classes primarias-->
+    <script id="script_index" src="./js/index.js"></script>
+    <!--Carrega as libs-->
+    <script id="script_index" src="./js/lib/Crypto-js.js"></script>
+    <script id="script_index" src="./js/lib/socket.io.min.js"></script>
+    <!--Carrega os controladores-->
+    <script id="script_index" src="./js/Controllers/Controle_componentes.js"></script>
+    <script id="script_index" src="./js/Controllers/Controle_navbar.js"></script>
+    <script id="script_index" src="./js/Controllers/Controle_notificacoes.js"></script>
+    <script id="script_index" src="./js/Controllers/Controle_Socket.js"></script>
+    <title>WSCore - Sistema de Controle Cadastral</title>
+</head>
+
+<body>
+    <nav id="ntt_navbar_top" class="ntt_navbar_top hidescrolbar">
+        <table
+            style="height: 40px;max-width: calc(100vw - 180px);border-collapse: collapse;margin: 0;margin-left:43px;padding: 0;border: 0;">
+            <tr id="ntt_navbar_top_abas" class="ntt_navbar_top_abas">
+                <!-- Local de Carregamento dinamico de Abas -->
+            </tr>
+        </table>
+    </nav>
+    <div id="ntt_navbar_top_config" class="ntt_navbar_top_config">
+        <table>
+            <tr>
+                <td>
+                    <!-- Campo de tarefas -->
+                    <span class="material-symbols-outlined">comment</span>
+                    <div id="tarefas_quantidades" class="navbar_top_config_counter">
+                        <center>1</center>
+                    </div>
+                </td>
+                <td id="notificacao_botao">
+                    <!-- Campo de notificações -->
+                    <span class="material-symbols-outlined">notifications</span>
+                    <div id="notificacoes_quantidades" class="navbar_top_config_counter">
+                        <center>99</center>
+                    </div>
+                </td>
+                <td>
+                    <!-- Campo de Dados Usuário -->
+                    <span class="material-symbols-outlined">person</span>
+                </td>
+                <td>
+                    <!-- Campo de Configurações -->
+                    <span class="material-symbols-outlined">settings</span>
+                </td>
+                <td onclick="Logout()">
+                    <!-- Campo de Configurações -->
+                    <span class="material-symbols-outlined">logout</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <nav id="ntt_navbar_right" class="ntt_navbar_right">
+    </nav>
+    <nav id="ntt_navbar_left" class="ntt_navbar_left">
+    </nav>
+    <nav id="ntt_navbar_bottom" class="ntt_navbar_bottom">
+    </nav>
+</body>
+
+</html>

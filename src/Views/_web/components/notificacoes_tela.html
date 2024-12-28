@@ -1,0 +1,51 @@
+<style>
+    .NTT_Notificacoes_Tela_Simples {
+        position: absolute;
+        right: 10px;
+        bottom: 30px;
+        margin-bottom: -100%;
+        border-radius: 20px;
+        border: 2px solid var(--menu_simples_bg_primario);
+        background-color: var(--menu_simples_bg_primario);
+        color: var(--menu_simples_texto);
+        width: 400px;
+        height: 60vh;
+        overflow: hidden;
+        z-index: 100;
+        opacity: 0;
+        transition: margin 700ms;
+    }
+
+    .Notificacao_Item {
+        border-radius: 10px;
+        border: 1px solid var(--aba_bg_click);
+        background-color: var(--aba_bg_hover);
+    }
+
+    .notificacao_tela_simples_show {
+        margin-bottom: 30px;
+    }
+</style>
+<table style="border-collapse: collapse;">
+    <tr>
+        <td>
+            <span style="margin-left:15px ;">
+                Notificações
+            </span>
+            <span onclick="_Notificacoes.Close_Tela()" class="material-symbols-outlined"
+                style="float: right; margin-right: 15px; font-size: 10pt; vertical-align: middle; cursor: pointer;">close</span>
+            <span onclick="_Notificacoes.Open_Aba()" class="material-symbols-outlined"
+                style="float: right; margin-right: 15px; font-size: 10pt; vertical-align: middle; cursor: pointer;">open_in_new</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div
+                style="background-color: var(--menu_simples_bg_secundario);width: calc(400px);height: calc(60vh - 24px); overflow-y:auto;">
+                <table id="Notificacao_Table" style="border-collapse: collapse;">
+
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>

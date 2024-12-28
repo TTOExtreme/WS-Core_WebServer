@@ -1,0 +1,25 @@
+{
+    "BD": {
+        "Usuario": "wscore_webserver_usuario",
+        "Senha": "senhasegura123",
+        "Database": "wscore_webserver",
+        "Host": "127.0.0.1",
+        "Porta": 3306
+    },
+    "LOG": {
+        "Console": true,
+        "Arquivo": true,
+        "LocalArquivo": "/var/log/wscore_webserver/",
+        "Rotatividade": 86400
+    },
+    "WebServer": {
+        "Porta": 80,
+        "Porta_Https": 443,
+        "Host": "localhost",
+        "Https_enable": true,
+        "Http_redireciona_Https": true,
+        "Https_Certificado": "./certs/servidor.crt",
+        "Https_Chave": "./certs/servidor.key",
+        "Pasta_Arquivos_Html": "./src/Views/_web"
+    }
+}
