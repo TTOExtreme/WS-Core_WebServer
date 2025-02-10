@@ -1,0 +1,53 @@
+/* Classe da barra de pesquisa */
+.Barra_Pesquisa {
+    width: calc(360px - 80px - 10px);
+    padding: 5px;
+    border: 1px solid #A8D900;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* Classe Primaria da aba Lateral Esquerda */
+.ntt_navbar_left {
+    position: absolute;
+    width: 40px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    color: var(--texto_primario);
+    background-color: var(--bg_terciario);
+    -webkit-transition: width 1s ease-in-out;
+    -moz-transition: width 1s ease-in-out;
+    -o-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+/* Classe de controle do Item de Menu */
+.Menu_Lateral_Esquerdo_Item {
+    cursor: pointer;
+    border-bottom: 2px solid var(--menu_lateral_borda);
+}
+
+/* Classe de controle dos itens de submenu */
+.Menu_Lateral_Esquerdo_Submenu_Holder {
+    color: var(--texto_primario);
+    background-color: var(--bg_terciario);
+    cursor: pointer;
+    border: 2px solid var(--menu_lateral_borda);
+    margin-top: -2px;
+    margin-left: 40px;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    -webkit-transition: height 1s ease-in-out;
+    -moz-transition: height 1s ease-in-out;
+    -o-transition: height 1s ease-in-out;
+    transition: height 1s ease-in-out;
+}
+
+.Menu_Lateral_Esquerdo_SubItem {
+    cursor: pointer;
+    width: 140px;
+}

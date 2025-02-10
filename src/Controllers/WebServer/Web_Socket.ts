@@ -64,9 +64,9 @@ export class Web_Socket {
                 /**
                  * Repasse do evento de conexão
                  */
-                Cliente_Conectado.Socket.on("usuarios/logintoken", (destino: string, dados: { token: string }, callback = (...retorno_callback: any) => { }) => {
-                    this._Logger.Info("[WebSocket] Evento de login: ", dados.token);
-                    this._Conexao_Core.emit("usuarios/logintoken", destino, dados, (Dados_Usuario) => {
+                Cliente_Conectado.Socket.on("usuarios/logintoken", (destino: string, token: string, dados: { token: string }, callback = (...retorno_callback: any) => { }) => {
+                    // this._Logger.Info("[WebSocket] Evento de login: ", destino, token, dados);
+                    this._Conexao_Core.emit("usuarios/logintoken", destino, token, dados, (Dados_Usuario: any) => {
                         Cliente_Conectado._Usuario = Dados_Usuario;
                         Cliente_Conectado.Conexao_ID = Dados_Usuario.token;
                         callback(Dados_Usuario);
@@ -76,14 +76,15 @@ export class Web_Socket {
                 /**
                  * Repasse de eventos Genericos
                  */
-                Cliente_Conectado.Socket.onAny((evento: string, destino: string, dados: Object, callback = (...retorno_callback: any) => { }) => {
+                Cliente_Conectado.Socket.onAny((evento: string, destino: string, token: string, dados: Object, callback = (...retorno_callback: any) => { }) => {
                     if (evento == "usuarios/logintoken") { return; }
                     this._Logger.Info("[WebSocket] Emitindo Evento", evento, destino);
 
                     /**
-                     * 
+                     * Encaminha todos os eventos recebidos pelo cliente para o Core.
+                     * O mesmo re-encaminha os eventos para o módulo de destino
                      */
-                    this._Conexao_Core.emit(evento, destino, { token: Cliente_Conectado.Conexao_ID, dados: dados }, callback);
+                    this._Conexao_Core.emit(evento, destino, token, dados, callback);
                 })
 
                 /**

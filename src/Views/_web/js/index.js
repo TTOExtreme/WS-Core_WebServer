@@ -18,7 +18,7 @@ window.onload = () => {
     _Notificacoes = new NTT_Notificacoes();
 
     // Inicializa o WebSocket
-    _WebSocket = new NTT_WebSocket();
+    _WebSocket = new WSCore_WebSocket();
     _WebSocket.Conectar();
 
 
@@ -34,6 +34,42 @@ window.onload = () => {
 
     // Carrega Abas
     Load_Favoritos();
+
+    // Carrega os menus vindo do Servidor
+    Load_Menus();
+
+
+
+    /**
+     * REMOVER UTILIZADO APENAS PARA DEBUG
+     */
+    let Menu_Lateral_Esquerdo = document.getElementById('ntt_navbar_left');
+    Menu_Lateral_Esquerdo.style.width = "360px";
+
+    /**
+     * REMOVER UTILIZADO APENAS PARA DEBUG
+     */
+}
+
+
+
+function Load_Menus() {
+    _WebSocket.Emit("menus/Listar", "WSCore_Autenticador/*", {},
+        (Lista_Menus) => {
+            console.log("Retorno dados dos menus:", Lista_Menus);
+
+            Lista_Menus.forEach(menu => {
+                Adicionar_Menu(menu);
+            });
+        });
+
+    /**
+     * Inicializa as funcionalidades do Menu Lateral
+     */
+
+    // Abertura e fechamento do Menu
+    let Menu_Lateral_Esquerdo_Open = document.getElementById('Menu_Lateral_Esquerdo_Open');
+    Menu_Lateral_Esquerdo_Open.onclick = () => { Click_MenuLateral() };
 }
 
 
@@ -45,6 +81,26 @@ window.onload = () => {
  */
 function Load_Favoritos() {
 
+
+    /**
+     * Teste de criação de telas
+     */
+    // Carregar_Script('./js/Controllers/Controle_tela.js', () => {
+    //     Carregar_Script('./modulo/Autenticador/js/Usuarios.js', () => {
+    //         let tela1 = new NTT_Core_Usuarios("Tela_teste_tela1", "Tela 1");
+    //         Adicionar_Aba_Superior("teste_tela1", "Tela 1", false, () => {
+    //             tela1.Criar_Tela("tela_tabela");
+    //             tela1.Abrir_Tela();
+    //         });
+
+
+    //         let tela2 = new NTT_Core_Usuarios("Tela_teste_tela2", "Tela 2");
+    //         Adicionar_Aba_Superior("teste_tela2", "Tela 2", false, () => {
+    //             tela2.Criar_Tela("tela_tabela");
+    //             tela2.Abrir_Tela();
+    //         });
+    //     })
+    // })
     /**
      * Cria Todas as Abas
      * TODO: Listar Abas favoritas e abrir todas elas;
@@ -127,4 +183,15 @@ function getCookie(name) {
  */
 function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+
+
+function _GeraString() {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let result = '';
+    for (let i = 0; i < 32; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
 }

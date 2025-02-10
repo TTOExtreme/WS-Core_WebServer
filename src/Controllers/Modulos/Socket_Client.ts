@@ -105,16 +105,19 @@ export class Socket_Client {
      * @param dados Dados em JSON para envio
      * @param callback Função de retorno da emissao caso necessario sincronia
      */
-    emit(evento: string, destino: string, dados: Object, callback = (...retorno_callback: any) => { }) {
+    emit(evento: string, destino: string, token: string, dados: Object, callback = (...retorno_callback: any) => { }) {
 
         // Cria o Pacote de dados para envio
         let PacoteModulo = new Pacotes_Socket();
         PacoteModulo.destino = destino;
         PacoteModulo.evento = evento;
         PacoteModulo.origem = this.Modulo_Dados.Modulo_ID;
+        PacoteModulo.token = token;
 
         // Compacta os dados do módulo para agregar ao Pacote do Socket
         PacoteModulo.dados = JSON.stringify(dados);
+
+        // this._Logger.Info(PacoteModulo);
 
         // Envia ao servidor Socket
         this.socketClient.emit("Pacote_Socket", PacoteModulo, callback);

@@ -12,16 +12,24 @@
 
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/navbar_top.css">
+    <link rel="stylesheet" href="./css/navbar_left.css">
+    <link rel="stylesheet" href="./css/lib/tabulator.min.css">
+    <link rel="stylesheet" href="./css/lib/tabulator.custom.css">
     <!--Carrega as classes primarias-->
     <script id="script_index" src="./js/index.js"></script>
     <!--Carrega as libs-->
     <script id="script_index" src="./js/lib/Crypto-js.js"></script>
+    <script id="script_index" src="./js/lib/tabulator.min.js"></script>
+    <script id="script_index" src="./js/lib/EventEmiter.js"></script>
     <script id="script_index" src="./js/lib/socket.io.min.js"></script>
     <!--Carrega os controladores-->
     <script id="script_index" src="./js/Controllers/Controle_componentes.js"></script>
+    <script id="script_index" src="./js/Controllers/Controle_carregador.js"></script>
     <script id="script_index" src="./js/Controllers/Controle_navbar.js"></script>
+    <script id="script_index" src="./js/Controllers/Controle_tela.js"></script>
     <script id="script_index" src="./js/Controllers/Controle_notificacoes.js"></script>
     <script id="script_index" src="./js/Controllers/Controle_Socket.js"></script>
+
     <title>WSCore - Sistema de Controle Cadastral</title>
 </head>
 
@@ -69,9 +77,29 @@
     <nav id="ntt_navbar_right" class="ntt_navbar_right">
     </nav>
     <nav id="ntt_navbar_left" class="ntt_navbar_left">
+        <div class="Menu_Lateral_Esquerdo_Header" style="width: 360px;float: right;">
+            <table style="width: 360px;float: right;">
+                <tr id="Menu_Lateral_Esquerdo_Open" style="cursor: pointer;">
+                    <td>
+                        <span class="material-symbols-outlined" style="float: right;">menu</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="Barra_Pesquisa" type="text" maxlength="100" oninput="Pesquisar_Menu(this.value)">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="Menu_Lateral_Esquerdo_Holder" class="Menu_Lateral_Esquerdo_Holder" style="width: 330px;float: right;">
+            <table id="Menu_Lateral_Esquerdo_Tabela">
+
+            </table>
+        </div>
     </nav>
     <nav id="ntt_navbar_bottom" class="ntt_navbar_bottom">
     </nav>
 </body>
+
 
 </html>

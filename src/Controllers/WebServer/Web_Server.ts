@@ -88,10 +88,10 @@ export class Web_Server {
         // Definição da Rota Raiz para abrir o index.html
         this.ExpressServer.get('/', (req, res) => {
             let token = this.getcookie(req, "WSCore_Auth");
-            this._Logger.Info("<" + token + ">");
             if (token != "") {
-                this._Logger.Info("<" + token + ">");
-                this._Conexao_Core.emit("usuarios/logintoken", "WSCore_Autenticador", { token: token }, (Dados_Usuario: any) => {
+                this._Logger.Info("Request do / com token <" + token + ">");
+                this._Conexao_Core.emit("usuarios/logintoken", "WSCore_Autenticador/*", token, {}, (Dados_Usuario: any) => {
+                    // this._Logger.Info("Usuario com token valido", Dados_Usuario)
                     if (Dados_Usuario.login == "OK") {
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.end(fs.readFileSync(this._Config.Pasta_Arquivos_Html + '/index.html').toString());
@@ -107,13 +107,8 @@ export class Web_Server {
         // Definição da Rota Raiz para abrir o Login.html
         this.ExpressServer.get('/login', (req, res) => {
             let token = this.getcookie(req, "WSCore_Auth");
-            this._Logger.Info("<" + token + ">");
             if (token != "") {
-                this._Logger.Info("<" + token + ">");
-                this._Conexao_Core.emit("usuarios/logintoken", "WSCore_Autenticador", { token: token }, (Dados_Usuario: any) => {
-
-
-                    this._Logger.Info(Dados_Usuario);
+                this._Conexao_Core.emit("usuarios/logintoken", "WSCore_Autenticador", token, {}, (Dados_Usuario: any) => {
                     if (Dados_Usuario.login == "OK") {
                         res.redirect(req.protocol + "://" + req.hostname + ":" + (req.protocol == "https" ? this._Config.Porta_Https : this._Config.Porta) + "/")
                     } else {
@@ -151,14 +146,14 @@ export class Web_Server {
             if (req.body.Senha == '0eab42de4c3ceb9235fc91acffe746b29c29a8c366b7c60e4e67c466f36a4304c00fa9caf9d87976ba469bcbe06713b435f091ef2769fb160cdab33d3670680e') { return; }
 
             // Debug do conteudo do login
-            this._Logger.Log("Tentativa de login: ", req.body);
+            // this._Logger.Log("Tentativa de login: ", req.body);
 
 
 
 
 
-            this._Conexao_Core.emit("usuarios/login", "WSCore_Autenticador", req.body, (Dados_Usuario: any) => {
-                this._Logger.Log("Retorno de login: ", Dados_Usuario);
+            this._Conexao_Core.emit("usuarios/login", "WSCore_Autenticador", "", req.body, (Dados_Usuario: any) => {
+                // this._Logger.Log("Retorno de login: ", Dados_Usuario);
                 res.writeHead(200, { 'Content-Type': 'text/json' });
                 res.end(JSON.stringify(Dados_Usuario));
             })
